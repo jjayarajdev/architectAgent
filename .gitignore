@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Generated artifacts
+docs/ea/*.png
+docs/ea/*.mmd
+docs/adr/ADR-*.md
+!docs/adr/ADR-000-template.md

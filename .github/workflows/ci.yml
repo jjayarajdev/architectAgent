@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test
+        run: pnpm test
+      
+      - name: Validate schema
+        run: pnpm --filter cli validate -i examples/input.multitenancy.json

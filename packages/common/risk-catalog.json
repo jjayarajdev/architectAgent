@@ -1,0 +1,134 @@
+{
+  "risks": [
+    {
+      "id": "SEC-001",
+      "category": "Security",
+      "description": "Data isolation breach between tenants",
+      "default_likelihood": "medium",
+      "default_impact": "high",
+      "controls": [
+        "Row-level security",
+        "Tenant ID validation",
+        "Security testing",
+        "Audit logging"
+      ]
+    },
+    {
+      "id": "SEC-002",
+      "category": "Security",
+      "description": "Authentication/Authorization bypass",
+      "default_likelihood": "low",
+      "default_impact": "high",
+      "controls": [
+        "RBAC implementation",
+        "Token validation",
+        "Security reviews",
+        "Penetration testing"
+      ]
+    },
+    {
+      "id": "PERF-001",
+      "category": "Performance",
+      "description": "Query performance degradation",
+      "default_likelihood": "medium",
+      "default_impact": "medium",
+      "controls": [
+        "Index optimization",
+        "Query profiling",
+        "Load testing",
+        "Database partitioning"
+      ]
+    },
+    {
+      "id": "PERF-002",
+      "category": "Performance",
+      "description": "Memory/Resource exhaustion",
+      "default_likelihood": "low",
+      "default_impact": "high",
+      "controls": [
+        "Resource limits",
+        "Connection pooling",
+        "Caching strategy",
+        "Auto-scaling"
+      ]
+    },
+    {
+      "id": "DATA-001",
+      "category": "Data",
+      "description": "Data migration failures",
+      "default_likelihood": "medium",
+      "default_impact": "high",
+      "controls": [
+        "Backup strategy",
+        "Rollback procedures",
+        "Data validation",
+        "Staged rollout"
+      ]
+    },
+    {
+      "id": "DATA-002",
+      "category": "Data",
+      "description": "Data consistency issues",
+      "default_likelihood": "medium",
+      "default_impact": "medium",
+      "controls": [
+        "Transaction management",
+        "Consistency checks",
+        "Event sourcing",
+        "Saga patterns"
+      ]
+    },
+    {
+      "id": "AVAIL-001",
+      "category": "Availability",
+      "description": "Service downtime during deployment",
+      "default_likelihood": "low",
+      "default_impact": "medium",
+      "controls": [
+        "Blue-green deployment",
+        "Feature flags",
+        "Canary releases",
+        "Health checks"
+      ]
+    },
+    {
+      "id": "INTEG-001",
+      "category": "Integration",
+      "description": "Breaking API changes",
+      "default_likelihood": "medium",
+      "default_impact": "high",
+      "controls": [
+        "API versioning",
+        "Contract testing",
+        "Deprecation policy",
+        "Client notifications"
+      ]
+    },
+    {
+      "id": "COMP-001",
+      "category": "Compliance",
+      "description": "GDPR/Privacy violations",
+      "default_likelihood": "low",
+      "default_impact": "high",
+      "controls": [
+        "Data classification",
+        "Encryption",
+        "Access controls",
+        "Privacy impact assessment"
+      ]
+    },
+    {
+      "id": "OPS-001",
+      "category": "Operations",
+      "description": "Insufficient monitoring/observability",
+      "default_likelihood": "medium",
+      "default_impact": "medium",
+      "controls": [
+        "Metrics collection",
+        "Distributed tracing",
+        "Log aggregation",
+        "Alerting rules"
+      ]
+    }
+  ]
+}

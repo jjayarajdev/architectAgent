@@ -1,0 +1,4 @@
+{
+  "repoUrl": "https://github.com/jjayarajdev/vialtokms.git",
+  "changeRequest": "Migrate from ChromaDB to Qdrant vector database"
+}

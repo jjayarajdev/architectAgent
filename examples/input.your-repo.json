@@ -1,0 +1,66 @@
+{
+  "repo": {
+    "url": "https://github.com/jjayarajdev/customMistral.git",
+    "branch": "main",
+    "path_filters": ["**/*.py", "**/*.js", "**/*.ts", "**/*.md"],
+    "monorepo": false
+  },
+  "requirement": {
+    "summary": "Analyze customMistral architecture and suggest improvements",
+    "type": "refactor",
+    "drivers": ["Code quality", "Performance optimization", "Maintainability"],
+    "acceptance_criteria": [
+      "Identify architectural patterns",
+      "Document current structure",
+      "Suggest improvements",
+      "Identify potential issues"
+    ],
+    "non_functional": {
+      "security": ["Code security review"],
+      "performance": {
+        "p95_ms": 500,
+        "concurrency": 100
+      },
+      "availability_slo": "99.0%"
+    },
+    "constraints": ["Maintain backward compatibility", "Minimal breaking changes"],
+    "deadline": "2025-12-31"
+  },
+  "context": {
+    "target_envs": ["dev", "prod"],
+    "architecture_style": "microservices",
+    "domain_owners": ["platform"],
+    "compliance": [],
+    "cloud": "AWS",
+    "ci_cd": "GitHub Actions",
+    "risk_tolerance": "medium"
+  },
+  "documentation": {
+    "roots": ["./", "docs/"],
+    "formats": ["md"],
+    "primary_diagram_style": "C4"
+  },
+  "analysis_scope": {
+    "code_depth": "deep",
+    "history_window": "90d",
+    "include_open_prs": true,
+    "include_issues_labels": ["bug", "enhancement"]
+  },
+  "outputs": {
+    "deliverables": [
+      "Requirement Summary",
+      "Impacted Components",
+      "Impact Analysis",
+      "Updated Architecture (C4 L2/L3)",
+      "ADRs",
+      "Risks & Mitigations",
+      "Effort & Plan",
+      "Test Strategy"
+    ],
+    "format": ["md", "png"],
+    "repo_write_back": {
+      "pull_request": false,
+      "pr_branch": "feat/ea-analysis-arch-review"
+    }
+  }
+}
