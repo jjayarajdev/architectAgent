@@ -1,4 +1,0 @@
-{
-  "repoUrl": "https://github.com/jjayarajdev/tr-kms-prod-app.git",
-  "changeRequest": "Migrate vector database from ChromaDB to Qdrant for ServiceNow RAG system"
-}
