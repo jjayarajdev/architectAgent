@@ -9,6 +9,7 @@
  */
 
 import { EAGenerator } from './src/generators/ea-generator.js';
+import { EAGeneratorMultiAgent } from './src/generators/ea-generator-multi-agent.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -40,7 +41,8 @@ function parseArgs() {
     optimized: false,
     help: false,
     generateImplementationPlan: false,
-    generateTestStrategy: false
+    generateTestStrategy: false,
+    multiAgent: true  // Default to multi-agent mode
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -71,6 +73,12 @@ function parseArgs() {
       case '--with-tests':
         options.generateTestStrategy = true;
         break;
+      case '--single-agent':
+        options.multiAgent = false;
+        break;
+      case '--multi-agent':
+        options.multiAgent = true;
+        break;
     }
   }
 
@@ -92,6 +100,8 @@ Options:
   -o, --optimized         Use optimized analyzer (faster but samples files)
   --with-plan             Generate implementation plan
   --with-tests            Generate test strategy
+  --multi-agent           Use multi-agent system (default)
+  --single-agent          Use single-agent system
 
 Examples:
   node index.js -r https://github.com/user/repo.git -c "Add multi-tenancy support"
@@ -135,16 +145,19 @@ async function main() {
     console.log('🚀 Starting EA Assessment Generation...');
     console.log(`📂 Repository: ${options.repo}`);
     console.log(`📝 Change Request: ${options.changeRequest}`);
+    console.log(`🤖 Mode: ${options.multiAgent ? 'Multi-Agent System' : 'Single Agent'}`);
     console.log('');
 
-    // Create generator instance
-    const generator = new EAGenerator({
+    // Create generator instance (use multi-agent if enabled)
+    const GeneratorClass = options.multiAgent ? EAGeneratorMultiAgent : EAGenerator;
+    const generator = new GeneratorClass({
       verbose: options.verbose,
       optimized: options.optimized,
       openaiApiKey: process.env.OPENAI_API_KEY,
       model: process.env.OPENAI_MODEL,
       maxTokens: process.env.OPENAI_MAX_TOKENS ? parseInt(process.env.OPENAI_MAX_TOKENS) : undefined,
-      outputDir: process.env.OUTPUT_DIR
+      outputDir: process.env.OUTPUT_DIR,
+      useMultiAgent: options.multiAgent
     });
 
     // Generate assessment
